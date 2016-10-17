@@ -14,15 +14,15 @@ save_file_path = '../result_data/result_'
 
 param = {
     'max_depth': 5,
-    'eta': 0.08,
+    'eta': 0.1,
     'silent': 1,
     'objective': 'binary:logistic',#binary:logistic
     'eval_metric': 'auc',
-    'scale_pos_weight': 1.6,
+    'scale_pos_weight': 1.8,
     'subsample': 0.7,
     'colsample_bytree': 0.7,
-    'alpha': 130,
-    'lambda': 130,
+    'alpha': 100,
+    'lambda': 100,
     'nthread': 5
 }
 
@@ -59,7 +59,7 @@ test_matrix = xgb.DMatrix(test_x)
 
 watchlist = [(train_matrix,'train'),(val_matrix,'val')]
 
-model = xgb.train(param, train_matrix, num_boost_round=350, evals=watchlist)
+model = xgb.train(param, train_matrix, num_boost_round=400, evals=watchlist)
 '''
 model = xgb.XGBClassifier()
 model.fit(train_x, train_y)
