@@ -36,10 +36,35 @@ for index in range(len(result_list[0])):
 for temp_list in result_list:
     for index in range(len(temp_list)):
         new_result_list[index] += float(temp_list[index])
+'''
+rember_dict = dict()
+for index in range(len(uid_list)):
+    uid = uid_list[index]
+    cid = cid_list[index]
+    received_time = received_time_list[index]
+    key = uid + ';' + cid + ';' + received_time
+    if key in rember_dict:
+        rember_dict[key] += 1
+    else:
+        rember_dict[key] = 1
 
 length = len(result_list)
 for index in range(len(uid_list)):
-    new_result_list[index] = new_result_list[index] / length
+    uid = uid_list[index]
+    cid = cid_list[index]
+    received_time = received_time_list[index]
+    key = uid + ';' + cid + ';' + received_time
+
+    new_result_list[index] /= length
+
+    if rember_dict[key] >= 2 and float(new_result_list[index]) < 0.6:
+        new_result_list[index] /= rember_dict[key]
+'''
+
+length = len(result_list)
+for index in range(len(uid_list)):
+    new_result_list[index] /= length
+
 
 with codecs.open('../combine_result.csv', 'w', 'utf-8') as write_file:
     for index in range(len(uid_list)):

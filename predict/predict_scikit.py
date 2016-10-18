@@ -47,12 +47,12 @@ weight_dict = {
 }
 
 print 'start'
-model = GradientBoostingRegressor(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=0, loss='ls')
+model = GradientBoostingRegressor(n_estimators=300, learning_rate=0.1, max_depth=4, random_state=0, loss='ls')
 #model = linear_model.LinearRegression()
 model.fit (train_x, train_y)
 predict_y = model.predict(test_x)
 
-print model.score(val_x, val_y)
+#print model.score(val_x, val_y, weight_dict)
 
 max_val = -10.0
 min_val = 10.0

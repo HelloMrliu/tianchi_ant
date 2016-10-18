@@ -30,10 +30,10 @@ for index in range(len(label_list)):
             pos_index_list.append(index)
             pos_rem_set.add(uid + ',' + mid + ',' + 'cid')
     else:
-        if index % 2 == 0:
+        if index % 5 == 0:
             if uid + ',' + mid + ',' + 'cid' not in pos_rem_set:
                 if index != 0:
-                    neg_index_list.append(index-2)
+                    neg_index_list.append(index-4)
                 else:
                     neg_index_list.append(index)
                 neg_rem_set.add(uid + ',' + mid + ',' + 'cid')

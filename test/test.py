@@ -59,12 +59,27 @@ def get_id_list_all(source_file_path, std_action):
     return result_list
 
 
-#online_train_set = set(get_id_list_all(online_train_file_path, '1'))
-#offline_train_set = set(get_id_list(offline_train_file_path))
+online_train_set = set(get_id_list_all(online_train_file_path, '1'))
+offline_train_set = set(get_id_list(offline_train_file_path))
 offline_test_set = set(get_test_list(offline_test_file_path))
 
 print len(offline_test_set)
+print len(offline_train_set)
+print len(online_train_set)
+
+
+count = 0
+for val in offline_test_set:
+    if val in online_train_set and val not in offline_train_set:
+        count += 1
+print count
 '''
+76309
+207784
+412182
+10874
+
+
 print len(offline_train_set)
 print len(online_train_set)
 print len(offline_train_set & online_train_set)
